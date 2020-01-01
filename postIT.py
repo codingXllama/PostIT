@@ -7,15 +7,15 @@ Jan_posts=[
     # Creating the 1st dictionary
     {
         'author':"Osama A",
-        'title': "Blog TITLE 1",
-        "content": "First post content",
+        'title': "Happy New Years",
+        "content": "Hope you have a wonderful new year and inshallah your dreams can come true :)",
         "date_posted":"Jan 1, 2019"
     },
     # Creating the 2nd dictionary
     {
-        'author':"Sam X",
-        'title': "Blog TITLE 2",
-        "content": "second post content",
+        'author':"Nexa D.",
+        'title': "Cats",
+        "content": "I love playing with my cat",
         "date_posted":"Jan 2, 2019"
     },
     

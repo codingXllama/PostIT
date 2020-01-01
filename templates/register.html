@@ -1,0 +1,29 @@
+<!-- This is the child class which inherites from the parent class 'layoyt.html' -->
+
+{% extends "layout.html"%}
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="">
+        {{regForm.hidden_tag()}}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb4">Join Today</legend>
+            <div class="form-group">
+                {{regForm.username.label(class="form-control-label")}}
+                {{regForm.username(class="form-control form-control-lg")}}
+            </div>
+            <div class="form-group">
+                {{regForm.password.label(class="form-control-label")}}
+                {{regForm.password(class="form-control form-control-lg")}}
+            </div>
+            <div class="form-group">
+                <!-- .label  is used to display the TEXT FIELD -->
+                {{regForm.confirm_password.label(class="form-control-label")}}
+                <!-- we DO NOT use '.label' here, because we're trying to create just the input field box, where the user can input into -->
+                {{regForm.confirm_password(class="form-control form-control-lg")}}
+            </div>
+        </fieldset>
+    </form>
+
+</div>
+
+{% endblock content %}

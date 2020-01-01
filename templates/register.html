@@ -5,6 +5,7 @@
 <div class="content-section">
     <form method="POST" action="">
         {{regForm.hidden_tag()}}
+        <!-- We use the attriubute 'fieldset' to group all the required input fields for the registeration page -->
         <fieldset class="form-group">
             <legend class="border-bottom mb4">Join Today</legend>
             <div class="form-group">
@@ -22,8 +23,19 @@
                 {{regForm.confirm_password(class="form-control form-control-lg")}}
             </div>
         </fieldset>
-    </form>
+        <!-- end of grouping related elements in a form (fieldset) -->
 
+        <!-- Creating the div for the submit button OUTSIDE of the fieldset attribute -->
+        <div class="form-group">
+            {{regForm.submit(class="btn btn-outline-info")}}
+        </div>
+    </form>
+</div>
+<!-- Creating a thin line under neath the form -->
+<div class="border-top pt-3">
+    <small class="text-muted">
+        Already have an account? <a class="ml-2" href="{{url_for('login')}}">Sign In Now</a>
+    </small>
 </div>
 
 {% endblock content %}

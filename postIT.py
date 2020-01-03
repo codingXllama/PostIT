@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, flash, redirect
 
 # importing the form classes from the form.py file since it's in the same directory
 from forms import RegisterationForm, LoginForm
@@ -38,10 +38,17 @@ def about():
 
 
 # Creating the registeration route
-@app.route("/register")
+@app.route("/register", methods=["GET", "POST"])
 def register():
     # Now we must create an instance of our form,hence we use '()'
     registerationForm = RegisterationForm()
+    # checking if the form has the correct required input fields, in other words if it passes our required validations
+    # In this case we must use a 'flash messages', thats a easy way sends the user a 1 time alert, you must import
+
+    if registerationForm.validate_on_submit():
+        flash(f"Account created for {registerationForm.username.data}!", "sucess")
+        # sending the user back to the home page if they successfully register
+        return redirect(url_for("home"))
     return render_template("register.html", title="Register", regForm=registerationForm)
 
 

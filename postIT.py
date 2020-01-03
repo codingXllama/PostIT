@@ -28,7 +28,7 @@ Jan_posts = [
 
 @app.route("/")
 @app.route("/home")
-def hello():
+def home():
     return render_template("home.html", Jan_posts=Jan_posts)
 
 
@@ -44,11 +44,13 @@ def register():
     registerationForm = RegisterationForm()
     # checking if the form has the correct required input fields, in other words if it passes our required validations
     # In this case we must use a 'flash messages', thats a easy way sends the user a 1 time alert, you must import
-
+    print("created registerationForm object")
     if registerationForm.validate_on_submit():
+        print("frist step inside")
         # sucess is just the bootstrap CLASS that we want the alert style to be !
-        # we will implement the functionality of the 'flash' method/pop up message in the layout.html 
+        # we will implement the functionality of the 'flash' method/pop up message in the layout.html
         flash(f"Account created for {registerationForm.username.data}!", "sucess")
+        print("passed the flash call")
         # sending the user back to the home page if they successfully register
         return redirect(url_for("home"))
     return render_template("register.html", title="Register", regForm=registerationForm)

@@ -10,6 +10,15 @@
             <legend class="border-bottom mb4">Join Today</legend>
             <div class="form-group">
                 {{regForm.username.label(class="form-control-label")}}
+                {% if regForm.username.errors %}
+                    {{regForm.username(class="form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                    {# printing in all the errors that we have #}
+                        {%for error in regForm.username.errors %}
+                            <span>{{error}}</span>
+                        {% endfor %}
+                    </div>
+                {%endif%}
                 {{regForm.username(class="form-control form-control-lg")}}
             </div>
             <div class="form-group">

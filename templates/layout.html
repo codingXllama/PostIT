@@ -65,11 +65,22 @@ our html files  -->
     <main role="main" class="container">
       <div class="row">
         <div class="col-md-8">
+        {# creating the functionality to display the flash messages #}
+        {# The with_catergoties=true, allows us to use the 'sucess' which is basically a category bootstrap class that we passed in the postIT.py flash method#}
           {% with messages = get_flashed_messages(with_categories=true)%}
-            {%if messages %}
-              {%for category, message in messages %}
-
-            {%endif %}
+            {# now we will print out any messages that is returned if any exsists within the 'get_flashed_messages()' function  #}
+            {# the if messages statement/condition, just indicates that we have some messages inside the get_flashed_messages() function, and they need to be displayed #}
+            {%if messages%}
+            {# looping through all the messages we have #}
+              {%for category,message in messages%}
+                {# printing the messages and we use a div to make it more organized when trying to style in css  #}
+                {# within the div class we will print the value of the alert- categortyType, example alert-sucess , if the catergory value is sucess #}
+                <div class="alert alert-{{category}}"> 
+                {# printing our the message variable #}
+                  {{message}}
+                </div>
+              {% endfor  %}
+            {%endif%}
           {% endwith %}
           {% block content %}{% endblock %}
         </div>

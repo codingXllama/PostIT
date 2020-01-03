@@ -46,6 +46,8 @@ def register():
     # In this case we must use a 'flash messages', thats a easy way sends the user a 1 time alert, you must import
 
     if registerationForm.validate_on_submit():
+        # sucess is just the bootstrap CLASS that we want the alert style to be !
+        # we will implement the functionality of the 'flash' method/pop up message in the layout.html 
         flash(f"Account created for {registerationForm.username.data}!", "sucess")
         # sending the user back to the home page if they successfully register
         return redirect(url_for("home"))

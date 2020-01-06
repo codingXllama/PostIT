@@ -8,6 +8,7 @@ app = Flask(__name__)
 # Creating a secrete key to avoid cross platform attacks, modifying cookies,and other foreign attacks
 app.config["SECRET_KEY"] = "5b358dae34397f5e261e35f22d753c7a"
 # creating dummy data, which contains an array called 'posts' that holds  dictionary with key and value
+
 Jan_posts = [
     # Creating the 1st dictionary
     {
@@ -40,13 +41,17 @@ def about():
 # Creating the registeration route
 @app.route("/register", methods=["GET", "POST"])
 def register():
+
     # Now we must create an instance of our form,hence we use '()'
     registerationForm = RegisterationForm()
+
     # checking if the form has the correct required input fields, in other words if it passes our required validations
     # In this case we must use a 'flash messages', thats a easy way sends the user a 1 time alert, you must import
     print("created registerationForm object")
+
     if registerationForm.validate_on_submit():
         print("frist step inside")
+
         # sucess is just the bootstrap CLASS that we want the alert style to be !
         # we will implement the functionality of the 'flash' method/pop up message in the layout.html
         flash(f"Account created for {registerationForm.username.data}!", "sucess")
